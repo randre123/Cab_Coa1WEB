@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>COA</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>MY COA</h1>
+  <h4>BY: <br> Cabansag Randre</h4>
+  <form id="feedbackForm">
+    <div class="form-group">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Year and Course:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="rating">What ratings would you rate the course you took?:</label>
+      <input type="radio" id="rating1" name="rating" value="1" required>1
+      <label for="rating1"></label>
+      <input type="radio" id="rating2" name="rating" value="2">2
+      <label for="rating2"></label>
+      <input type="radio" id="rating3" name="rating" value="3">3
+      <label for="rating3"></label>
+      <input type="radio" id="rating4" name="rating" value="4">4
+      <label for="rating4"></label>
+      <input type="radio" id="rating5" name="rating" value="5">5
+      <label for="rating5"></label>
+    </div>
+
+    <div class="form-group">
+        <label for="rating">What ratings would you rate the course you took?:</label>
+        <input type="radio" id="rating1" name="rating" value="1" required>Yes
+        <label for="rating1"></label>
+        <input type="radio" id="rating2" name="rating" value="2"> No
+        <label for="rating2"></label>
+        <input type="radio" id="rating3" name="rating" value="3">Maybe
+        <label for="rating3"></label>
+        <input type="radio" id="rating4" name="rating" value="4">Not Sure
+        <label for="rating4"></label>
+        <input type="radio" id="rating5" name="rating" value="5">Undecided
+        <label for="rating5"></label>
+    </div>
+
+    <div class="form-group">
+        <label for="feedbackType">What Progamming Language do you want to learn?</label>
+        <select id="feedbackType" name="feedbackType">
+          <option value="bug">Pythoh</option>
+          <option value="feature">SQL</option>
+          <option value="general">PHP</option>
+          <option value="general">Javascript</option>
+          <option value="general">HTML/CSS</option>
+          <option value="general">COBOL</option>
+          <option value="general">JAVA</option>
+        </select>
+      </div>
+
+    <div class="form-group">
+      <label for="comments">Comments:</label>
+      <textarea id="comments" name="comments" rows="4" cols="50" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="subscribe"></label>
+      <input type="checkbox" id="subscribe" name="subscribe">Subscribe to Newsletter
+    </div>
+
+    <div class="form-group">
+      <input type="button" value="Submit" onclick="validateForm()">
+    </div>
+  </form>
+
+  <script src="script.js">
+    // script.js
+function validateForm() {
+  // Get form inputs
+  var nameInput = document.getElementById('name');
+  var emailInput = document.getElementById('email');
+  var ratingInputs = document.getElementsByName('rating');
+  var commentsInput = document.getElementById('comments');
+
+  // Validate name
+  if (nameInput.value === '') {
+    alert('Please enter your name.');
+    nameInput.focus();
+    return false;
+  }
+
+  // Validate email
+  if (emailInput.value === '') {
+    alert('Please enter your email.');
+    emailInput.focus();
+    return false;
+  }
+
+  // Validate rating
+  var selectedRating = false;
+  for (var i = 0; i < ratingInputs.length; i++) {
+    if (ratingInputs[i].checked) {
+      selectedRating = true;
+      break;
+    }
+  }
+  if (!selectedRating) {
+    alert('Please select a rating.');
+    return false;
+  }
+
+  // Validate comments
+  if (commentsInput.value === '') {
+    alert('Please enter your comments.');
+    commentsInput.focus();
+    return false;
+  }
+
+  // Form is valid, submit or perform desired action
+  alert('Thank you for your feedback!');
+  return true;
+}
+
+  </script>
+</body>
+</html>
